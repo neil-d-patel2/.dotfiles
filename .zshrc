@@ -101,12 +101,22 @@ alias l='ls -lah'               # detailed directory listing
 alias tmuxcreate='tmux new -s'
 alias tmuxattach='tmux attach'
 alias tmuxkill='tmux kill-session -t'
+alias py="python3"
+alias gl="git pull"
+alias gs="git status"
+alias gd="git diff"
+alias gco="git checkout"
+alias grh="git reset"
+alias gbr='git branch'
+alias gsw='git switch'
+
 
 
 # ==============================================================================
 # SHELL OPTIONS
 # ==============================================================================
 setopt interactivecomments   # allow # comments in interactive shell
+bindkey '\ew' backward-kill-line  # Option+W deletes from cursor to start of line
 
 
 # ==============================================================================
