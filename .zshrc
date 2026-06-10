@@ -11,7 +11,6 @@ fi
 # OH MY ZSH
 # zsh-autocomplete must be sourced BEFORE oh-my-zsh
 # ==============================================================================
-source ~/zsh_plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
