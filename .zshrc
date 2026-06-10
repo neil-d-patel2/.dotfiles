@@ -9,14 +9,30 @@ fi
 
 # ==============================================================================
 # OH MY ZSH
-# zsh-autocomplete must be sourced BEFORE oh-my-zsh
 # ==============================================================================
-
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+
+
+# ==============================================================================
+# HISTORY
+# ==============================================================================
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE   # don't save commands that start with a space (useful for secrets)
+setopt HIST_VERIFY         # show the expanded command before running a history substitution
+
+
+# ==============================================================================
+# COMPLETION
+# ==============================================================================
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'  # case-insensitive tab completion
 
 
 # ==============================================================================
@@ -81,6 +97,7 @@ npx()  { nvm; npx  "$@"; }
 # ==============================================================================
 # ALIASES
 # ==============================================================================
+alias l='ls -lah'               # detailed directory listing
 alias tmuxcreate='tmux new -s'
 alias tmuxattach='tmux attach'
 alias tmuxkill='tmux kill-session -t'
