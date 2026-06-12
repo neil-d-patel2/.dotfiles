@@ -111,6 +111,9 @@ alias gbr='git branch'
 alias gsw='git switch'
 alias -g ...='../..'
 alias desk='cd ~/Desktop'
+alias dev='cd ~/Dev'
+alias class='cd ~/Classes'
+alias learn='cd ~/Learning'
 
 
 
