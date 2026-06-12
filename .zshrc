@@ -110,7 +110,7 @@ alias grh="git reset"
 alias gbr='git branch'
 alias gsw='git switch'
 alias -g ...='../..'
-alias desk='cd ~/desktop'
+alias desk='~/Desktop'
 
 
 
