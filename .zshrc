@@ -109,6 +109,8 @@ alias gco="git checkout"
 alias grh="git reset"
 alias gbr='git branch'
 alias gsw='git switch'
+alias -g ...='../..'
+
 
 
 
