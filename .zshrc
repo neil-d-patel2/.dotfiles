@@ -115,6 +115,7 @@ alias dev='cd ~/Dev'
 alias class='cd ~/Classes'
 alias learn='cd ~/Learning'
 alias leet='cd ~/Learning/Interview-prep/Leetcode-problems'
+alias gco='git checkout $(git branch | fzf | sed "s/^[* ]*//")'
 
 
 
