@@ -114,6 +114,8 @@ alias desk='cd ~/Desktop'
 alias dev='cd ~/Dev'
 alias class='cd ~/Classes'
 alias learn='cd ~/Learning'
+alias leet='cd ~/Learning/interview-prep/leetcode-problems'
+
 
 
 
