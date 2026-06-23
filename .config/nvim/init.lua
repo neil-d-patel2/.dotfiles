@@ -1,4 +1,3 @@
-
 local ok, err = pcall(require, "core")
 if not ok then
   vim.notify("Error loading core: " .. err, vim.log.levels.ERROR)

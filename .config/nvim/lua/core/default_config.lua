@@ -1,10 +1,14 @@
-local M = {}
+local m = {}
 
-M.options = {
+
+
+m.options = {
   nvchad_branch = "v2.0",
+  number = true,
+  relativenumber = true,
 }
 
-M.ui = {
+m.ui = {
   ------------------------------- base46 -------------------------------------
   -- hl = highlights
   hl_add = {},
@@ -15,7 +19,7 @@ M.ui = {
   transparency = false,
   lsp_semantic_tokens = false, -- needs nvim v0.9, just adds highlight groups for lsp semantic tokens
 
-  -- https://github.com/NvChad/base46/tree/v2.0/lua/base46/extended_integrations
+  -- https://github.com/nvchad/base46/tree/v2.0/lua/base46/extended_integrations
   extended_integrations = {}, -- these aren't compiled by default, ex: "alpha", "notify"
 
   -- cmp themeing
@@ -63,12 +67,12 @@ M.ui = {
     },
 
     buttons = {
-      { "  Find File", "Spc f f", "Telescope find_files" },
-      { "󰈚  Recent Files", "Spc f o", "Telescope oldfiles" },
-      { "󰈭  Find Word", "Spc f w", "Telescope live_grep" },
-      { "  Bookmarks", "Spc m a", "Telescope marks" },
-      { "  Themes", "Spc t h", "Telescope themes" },
-      { "  Mappings", "Spc c h", "NvCheatsheet" },
+      { "  find file", "spc f f", "telescope find_files" },
+      { "󰈚  recent files", "spc f o", "telescope oldfiles" },
+      { "󰈭  find word", "spc f w", "telescope live_grep" },
+      { "  bookmarks", "spc m a", "telescope marks" },
+      { "  themes", "spc t h", "telescope themes" },
+      { "  mappings", "spc c h", "nvcheatsheet" },
     },
   },
 
@@ -83,10 +87,14 @@ M.ui = {
   },
 }
 
-M.plugins = "" -- path i.e "custom.plugins", so make custom/plugins.lua file
+m.plugins = "" -- path i.e "custom.plugins", so make custom/plugins.lua file
 
-M.lazy_nvim = require "plugins.configs.lazy_nvim" -- config for lazy.nvim startup options
+m.lazy_nvim = require "plugins.configs.lazy_nvim" -- config for lazy.nvim startup options
 
-M.mappings = require "core.mappings"
+m.mappings = require "core.mappings"
 
-return M
+vim.opt.number = true
+vim.opt.relativenumber = true
+
+
+return m
