@@ -16,3 +16,12 @@ for _, lsp in ipairs(servers) do
   })
   vim.lsp.enable(lsp)
 end
+
+-- Diagnostics are still computed by the LSP, but NOT shown inline (no virtual
+-- text, gutter signs, or underlines). View them on demand via Trouble: <leader>xx
+vim.diagnostic.config {
+  virtual_text = false,
+  signs = false,
+  underline = false,
+  update_in_insert = false,
+}
