@@ -9,6 +9,10 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
+      -- "python" intentionally omitted: its treesitter highlighter froze the UI
+      -- for ~5-10s on every .py open (started when a trouble.nvim sync compiled
+      -- this parser). Python now uses built-in vim syntax (still gruvbox-colored).
+      -- Re-add "python" / run :TSInstall python to restore treesitter highlighting.
       ensure_installed = { "lua", "vim", "vimdoc", "markdown", "markdown_inline" },
     },
   },
@@ -58,33 +62,12 @@ return {
     opts = {},
   },
 
-  -- mason: ensure Python (pyright) and C++ (clangd) servers are installed
-  {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      opts.ensure_installed = opts.ensure_installed or {}
-      vim.list_extend(opts.ensure_installed, { "pyright", "clangd" })
-      return opts
-    end,
-  },
-
-  -- lspconfig: load NvChad defaults + our custom servers (python, cpp)
+  -- lspconfig: load NvChad defaults (no custom LSP servers configured)
   {
     "neovim/nvim-lspconfig",
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end,
-  },
-
-  -- trouble (diagnostics / quickfix / LSP list)
-  {
-    "folke/trouble.nvim",
-    cmd = "Trouble",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {},
-    keys = {
-      { "<leader>xx", "<cmd>Trouble diagnostics toggle focus=true<cr>", desc = "Diagnostics (Trouble)" },
-   },
   },
 }
