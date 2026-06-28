@@ -119,7 +119,7 @@ alias gco='git checkout $(git branch | fzf | sed "s/^[* ]*//")'
 alias cses='cd ~/Learning/Interview-prep/cses-problems/'
 alias commitX='cd ~/misc-dev-stuff/new-cron-script/'
 alias website='cd ~/Desktop/Port/website/'
-
+alias cur='cd ~/cur/'
 
 
 
