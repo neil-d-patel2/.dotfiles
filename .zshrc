@@ -120,8 +120,16 @@ alias cses='cd ~/Learning/Interview-prep/cses-problems/'
 alias commitX='cd ~/misc-dev-stuff/new-cron-script/'
 alias website='cd ~/Desktop/Port/website/'
 alias cur='cd ~/cur/'
+alias 
 
-
+# venv shortcut 
+venv() {
+  if [ -d ".venv" ]; then
+    source .venv/bin/activate
+  else
+    echo "No .venv found in current directory"
+  fi
+}
 
 
 
