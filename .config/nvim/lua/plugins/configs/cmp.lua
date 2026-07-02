@@ -46,8 +46,12 @@ end
 
 local options = {
   completion = {
-    completeopt = "menu,menuone",
+    completeopt = "menu,menuone,noselect",
   },
+
+  -- Don't auto-highlight the first entry; nothing is selected until you
+  -- explicitly navigate with <Tab>/<C-n>. Keeps <CR> as a plain newline.
+  preselect = cmp.PreselectMode.None,
 
   window = {
     completion = {
@@ -75,10 +79,15 @@ local options = {
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.close(),
-    ["<CR>"] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
-    },
+    ["<CR>"] = cmp.mapping(function(fallback)
+      -- Only confirm if an item was explicitly selected (via <Tab>/<C-n>).
+      -- Otherwise let <CR> insert a newline instead of picking the first item.
+      if cmp.visible() and cmp.get_selected_entry() then
+        cmp.confirm { behavior = cmp.ConfirmBehavior.Insert, select = false }
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
